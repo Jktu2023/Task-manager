@@ -70,7 +70,7 @@ root = tk.Tk()
 root.title('Задачи')
 root.configure(bg='antique white')
 
-text1 = tk.Label(root, text='Введите задачу:', bg='antique white')
+text1 = tk.Label(root, text='Введите задачу в формате "Задача, дата":', bg='antique white')
 text1.pack(pady=15)
 
 frame = tk.Frame(root, bg='AntiqueWhite3', width=100, height= 10)
