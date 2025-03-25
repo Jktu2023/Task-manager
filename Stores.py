@@ -21,28 +21,48 @@ class Store:
         self.adress = adress
         self.items = dict()
 
-    def add_item(self, item_name, price):
-        self.items[item_name] = price  # Добавляем пару товар: цена в словарь
-        print(f'Добавлен товар: {item_name}, цена: {price} руб.')
+    def add_item(self, product, price):
+        self.items[product] = price  # Добавляем пару товар: цена в словарь
+        print(f'Добавлен товар: {product}, цена: {price} руб.')
 
-    def del_item(self):
-        pass
+    def del_item(self, product):
+        if product in self.items:
+            del self.items[product] # удаляем товар из словаря
+            print(f'Удален товар: {product}')
+        else:
+            print(f'Такого товара нет: {product}')
+            return None
 
-    def get_price(self): # `None` если нет
-        pass
+    def get_price(self, product): # `None` если нет
+        if product in self.items:
+            print(f'Цена на {product}: {self.items[product]} рублей.')
+        else:
+            print(f'Такого товара нет: {product}')
+            return None
 
-    def put_price(self):
-        pass
+    def set_price(self, product, price):
+        if product in self.items:
+            old = self.items[product]
+            self.items[product] = price
+            print(f'Цена на {product} изменена с {old} на {self.items[product]} руб.')
+        else:
+            print(f'Такого товара нет: {product}')
+            return None
 
-    def info(self):
-        # for item in
-        print(f'Название: {self.name}')
+    def info(self, ):
+        print('\n                 ***')
+        print(f'Общая информация о магазине: {self.name}')
         print(f'Адрес: {self.adress}')
+        print(f'Ассортимент: {self.items}')
+
 
 
 Meloch_1000 = Store('1000 Мелочей', 'Ленина 55')
 Meloch_1000.add_item('Pepsi',98)
 Meloch_1000.add_item('Fanta',95)
 Meloch_1000.add_item('7-Up',90)
+Meloch_1000.del_item('Pepsi')
+Meloch_1000.get_price('Fanta')
+Meloch_1000.set_price('7-Up', 92)
 Meloch_1000.info()
 
